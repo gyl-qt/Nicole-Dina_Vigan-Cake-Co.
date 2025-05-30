@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vegan Cake Co. - Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #F5F5F4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #800080;
+      color: white;
+      padding: 1rem;
+      font-size: 2rem;
+      font-family: 'Brush Script MT', cursive;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    header img {
+      height: 40px;
+      cursor: pointer;
+    }
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: white;
+      border: 1px solid #050a30;
+      box-shadow: 0 0 15px #800080;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .product-card img {
+      width: 100%;
+      max-width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .product-card img:hover {
+      transform: scale(1.05);
+    }
+    .product-name {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #800080;
+    }
+    .buy-btn {
+      margin-top: auto;
+      background-color: #800080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .buy-btn:hover {
+      background-color: #1a237e;
+    }
+    footer {
+      background-color: #800080;
+      color: #F5F5F4;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header with Back Icon -->
+<header>
+  <a href="index.html">
+    <img src="back.PNG" alt="Back" />
+  </a>
+  <span>Vegan Cake Co.</span>
+</header>
+
+<!-- Main Product Section -->
+<main>
+  <div class="product-list">
+    <div class="product-card">
+      <img src="nga.PNG" alt="Product nga" />
+      <div class="product-name">Berries Chiffon Cake</div>
+      <button class="buy-btn" data-product="Berries Chiffon Cake" data-bs-toggle="modal" data-bs-target="#buyModal">Buy Now</button>
+    </div>
+    <div class="product-card">
+      <img src="nge.PNG" alt="Product nge" />
+      <div class="product-name">Orange Cake</div>
+      <button class="buy-btn" data-product="Orange Cake" data-bs-toggle="modal" data-bs-target="#buyModal">Buy Now</button>
+    </div>
+    <div class="product-card">
+      <img src="ngi.PNG" alt="Product ngi" />
+      <div class="product-name">Pistachio Carrot Cake</div>
+      <button class="buy-btn" data-product="Pistachio Carrot Cake" data-bs-toggle="modal" data-bs-target="#buyModal">Buy Now</button>
+    </div>
+    <div class="product-card">
+      <img src="ngo.PNG" alt="Product ngo" />
+      <div class="product-name">Tutti-fruity Cake</div>
+      <button class="buy-btn" data-product="Tutti-fruity Cake" data-bs-toggle="modal" data-bs-target="#buyModal">Buy Now</button>
+    </div>
+  </div>
+</main>
+
+<!-- Buy Modal -->
+<div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" id="buyForm" novalidate>
+      <div class="modal-header">
+        <h5 class="modal-title" id="buyModalLabel">Purchase Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="selectedProduct" style="font-weight: bold; font-size: 1.2rem;"></p>
+
+        <div class="mb-3">
+          <label for="buyerName" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="buyerName" required />
+          <div class="invalid-feedback">Please enter your full name.</div>
+        </div>
+        <div class="mb-3">
+          <label for="buyerAddress" class="form-label">Exact Address</label>
+          <textarea class="form-control" id="buyerAddress" rows="2" required></textarea>
+          <div class="invalid-feedback">Please enter your address.</div>
+        </div>
+        <div class="mb-3">
+          <label for="paymentMode" class="form-label">Mode of Payment</label>
+          <select class="form-select" id="paymentMode" required>
+            <option value="" selected disabled>Choose...</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Mobile Payment">Gcash</option>
+          </select>
+          <div class="invalid-feedback">Please select a payment mode.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Buy Now!</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>&copy; 2025 Vegan Cake Co. All rights reserved.</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const buyModal = document.getElementById('buyModal');
+  const selectedProductEl = document.getElementById('selectedProduct');
+  const buyForm = document.getElementById('buyForm');
+
+  let currentProduct = '';
+
+  // Set product name in modal when buy button clicked
+  document.querySelectorAll('.buy-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      currentProduct = button.getAttribute('data-product');
+      selectedProductEl.textContent = `You are buying: ${currentProduct}`;
+      buyForm.reset();
+      buyForm.classList.remove('was-validated');
+    });
+  });
+
+  // Form submit handler
+  buyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!buyForm.checkValidity()) {
+      buyForm.classList.add('was-validated');
+      return;
+    }
+
+    const modalInstance = bootstrap.Modal.getInstance(buyModal);
+    modalInstance.hide();
+
+    alert(`Thank you! You have successfully bought "${currentProduct}".`);
+  });
+</script>
+
+</body>
+</html>
